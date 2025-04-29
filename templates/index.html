@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Info App</title>
+</head>
+<body>
+    <h1>Stock Information Lookup</h1>
+    <form method="post">
+        <input type="text" name="symbol" placeholder="Enter stock symbol" required>
+        <button type="submit">Get Info</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if stock_data %}
+        <h2>Result:</h2>
+        <p>{{ stock_data.time }}</p>
+        <p>{{ stock_data.company_name }} ({{ stock_data.symbol }})</p>
+        <p>{{ stock_data.price }} {{ stock_data.value_change }} ({{ stock_data.percentage_change }})</p>
+    {% endif %}
+</body>
+</html>
